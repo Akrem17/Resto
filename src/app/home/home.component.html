@@ -1,0 +1,36 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px">
+
+<mat-card *ngIf="featuredDish" fxFlex>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{featuredDish.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src={{featuredDish.image}} alt={{featuredDish.name}}>
+  <mat-card-content>
+    <p>{{featuredDish.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card fxFlex *ngFor='let promotion of promotedDishes'>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{promotion.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src={{promotion.image}} alt={{promotion.name}}>
+  <mat-card-content>
+    <p>{{promotion.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+</div>

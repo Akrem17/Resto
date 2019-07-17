@@ -1,0 +1,49 @@
+<div class="container" fxLayout='row' fxLayoutGap='20px'  fxLayout.sm="column"    fxLayout.xs="column" 
+fxLayoutAlign.gt-md="space-around center" fxLayoutGap.xs="0"
+
+>
+<button mat-button (click)='previousPage()'>Back</button>
+
+
+  <div fxFlex="40" *ngIf='dish'>
+      <mat-card>
+          <mat-card-header>
+
+          <mat-card-title>
+            <h2>{{dish.name}}</h2>  
+          </mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src={{dish.image}}>	
+          <mat-card-content>
+            <p>{{dish.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+
+              <button mat-button>Like</button>
+              <button mat-button>Share</button>
+
+          
+          </mat-card-actions>
+
+
+      </mat-card>
+</div>
+
+
+<div fxFlex="40" *ngIf='dish'>
+    <h2>Comments</h2>  
+  <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor='let comment of dish.comments'>
+            <h2 matLine>{{comment.comment}}</h2>
+            <h3 matLine>--{{comment.rating}}</h3>
+            <p matLine> {{comment.author}}  {{comment.date.slice(0,10)}}  </p>
+
+
+        </mat-list-item>
+        
+      </mat-list>
+      
+    </div>
+    
+    
+</div>
